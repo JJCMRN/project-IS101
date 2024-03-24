@@ -95,3 +95,18 @@ a {
     color: #619a3e;
     text-decoration: none;
 }
+/* hover */
+input:hover{
+    scale: 1.1;
+    transition: 0.5s;
+}
+button:hover{
+    background-color: gray;
+}
+
+.forgot-pass:hover{
+    text-decoration: underline;
+}
+.register-form:hover{
+    text-decoration: underline;
+}

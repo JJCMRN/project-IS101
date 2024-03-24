@@ -89,7 +89,7 @@ main {
                 justify-content: start;
                 align-items: center;
                 width: 40px;
-                margin-left: 20px;
+                margin-left: 50px;
                 margin-bottom: 10px;
             }
                 .log-button > button {
@@ -218,4 +218,17 @@ li, a, button {
   'wght' 400,
   'GRAD' 0,
   'opsz' 24
+}
+/*hover*/
+button:hover{
+    background-color: green;
+    transition: 0.5s;
+}
+.new-chat:hover{
+    background-color: green;
+    transition: 0.5s;
+}
+p:hover{
+    background-color:  green;
+    transition: 0.5s;
 }
