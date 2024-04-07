@@ -17,25 +17,23 @@
 
             <form action="" class="login-form">
 
-                
-    
                 <div class="body">
 
                     <span class="login-title">Please Login</span>
 
                     <div class="username-container">
-                        <input class="input" type="text" name="email" id="username" placeholder="Email">
+                        <input class="input" type="text" name="email" id="username" placeholder="Email" required>
                         <span class="focus-input"></span>
                         <span class="symbol-input"></span>
                     </div>
                     
                     <div class="password-container">
-                        <input class="input" type="password" name="pass" id="password" placeholder="Password">
+                        <input class="input" type="password" name="pass" id="password" placeholder="Password" required>
                         <span class="focus-input"></span>
                         <span class="symbol-input"></span>
                     </div>
 
-                    <button class="register-form-btn"> Login </button>
+                    <button class="login-form-btn"> Login </button>
                   
 
                     <div class="forgot-pass">
@@ -45,11 +43,13 @@
                 </div>
                 
                 <div class="register-form">
-                    <a class="txt2" href="register.html"> Create Account </a>
+                    <a class="txt2" href="register.php"> Create Account </a>
                 </div>
 
-            </form>
+            </form>     
         </div>
     </div>
+
+    <script src="../js/login.js"></script>
 </body>
 </html>

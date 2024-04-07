@@ -15,27 +15,27 @@
                 </a>
             </div>
 
-            <form action="" class="login-form">
+            <form action="" class="login-form" enctype="multipart/form-data">
     
                 <div class="body">
 
                     <span class="login-title">Sign Up</span>
 
                     <div class="username-container">
-                        <input class="input" type="text" name="email" id="username" placeholder="Email">
+                        <input class="input" type="text" name="email" id="username" placeholder="Email" required>
                         <span class="focus-input"></span>
                         <span class="symbol-input"></span>
                     </div>
 
                     
                     <div class="password-container">
-                        <input class="input" type="password" name="pass" id="password" placeholder="Password">
+                        <input class="input" type="password" name="pass" id="password" placeholder="Password" required>
                         <span class="focus-input"></span>
                         <span class="symbol-input"></span>
                     </div>
 
                     <div class="password-container">
-                        <input class="input" type="password" name="pass" id="password" placeholder=" Confirm Password">
+                        <input class="input" type="password" name="confirmPass" id="confirmPass" placeholder=" Confirm Password" required>
                         <span class="focus-input"></span>
                         <span class="symbol-input"></span>
                     </div>
@@ -45,11 +45,13 @@
                 </div>
                 
                 <div class="backtologin">
-                    <a class="txt2" href="login.html"> Back to Login </a>
+                    <a class="txt2" href="login.php"> Back to Login </a>
                 </div>
 
             </form>
         </div>
     </div>
+
+    <script src="../js/register.js"></script>
 </body>
 </html>
