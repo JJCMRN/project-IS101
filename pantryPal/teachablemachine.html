@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachable Machine Image Model</title>
+</head>
+<body>
+
+    <div>Teachable Machine Image Model</div>
+    <input type="file" id="imageUpload" accept="image/*" onchange="handleImageUpload(event)">
+    <div id="label-container"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+        // The link to your model provided by Teachable Machine export panel
+        const URL = "https://teachablemachine.withgoogle.com/models/QJXWUlRoh/";
+
+        let model, labelContainer, maxPredictions;
+
+        let modelLoaded = false;
+
+        // Load the image model
+        async function init() {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+
+            // Load the model and metadata
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            // Set the modelLoaded flag to true
+            modelLoaded = true;
+        }
+
+        // Handle image upload
+        async function handleImageUpload(event) {
+            const imageFile = event.target.files[0];
+            if (!imageFile) return;
+
+            const img = document.createElement('img');
+            img.onload = async () => {
+                if (modelLoaded) { // Check if the model has finished loading
+                    const prediction = await predict(img);
+                    updateLabel(prediction);
+                } else {
+                    console.error('Model is not yet loaded.');
+                }
+            };
+            img.src = window.URL.createObjectURL(imageFile);
+        }
+
+        // Run prediction on the provided image
+        async function predict(img) {
+            const prediction = await model.predict(img);
+            return prediction;
+        }
+
+
+        // Update the label container with prediction results
+        function updateLabel(prediction) {
+
+            const labelContainer = document.getElementById('label-container');
+            labelContainer.innerHTML = '';
+
+            let maxProbability = 0;
+            let maxClassIndex = 0;
+            
+
+            for (let i = 0; i < maxPredictions; i++) {
+
+                const probability = prediction[i].probability;
+
+                if (probability > maxProbability) {
+                    maxProbability = probability;
+                    maxClassIndex = i;
+                }
+
+                const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                
+                console.log(classPrediction);
+            }
+
+            const maxClassPrediction = prediction[maxClassIndex].className + ": " + maxProbability.toFixed(2);
+            console.log(maxClassPrediction);
+
+        }
+
+        // Initialize the model
+        init();
+    </script>
+</body>
+</html>

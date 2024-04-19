@@ -33,7 +33,7 @@ inputFile.addEventListener('change',function () {
     reader.readAsDataURL(image);
 
     imageArea.style.display = 'flex';
-
+    
 });
 
 function exitImageArea() {

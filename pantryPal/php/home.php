@@ -75,7 +75,8 @@
                                 <input type="text" name="outgoing_id" value="<?php echo $_SESSION['user_id']; ?>" hidden>
                                 <input type="text" name="name" id="file-name" placeholder="File name" required>
                                 <label for="fileInput">Upload File</label>
-                                <input type="file" id="fileInput" name="image" accept=".jpg, .jpeg, .png" value="">
+                                <input type="file" id="fileInput" name="image" accept=".jpg, .jpeg, .png" 
+                                        value="" onchange="handleImageUpload(event)" >
 
                                 <div class="send-button">
                                     <button type="submit" name="submit" class="image-button" id="send-button">Send
@@ -94,5 +95,8 @@
         </main>
 
         <script src="../js/home.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+        <script src="../js/ai-prediction.js"></script>
 </body>
 </html>
