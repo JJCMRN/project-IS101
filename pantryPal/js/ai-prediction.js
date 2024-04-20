@@ -1,3 +1,4 @@
+
 // The link to your model provided by Teachable Machine export panel
 const URL = "https://teachablemachine.withgoogle.com/models/QJXWUlRoh/";
 
@@ -40,7 +41,6 @@ async function predict(img) {
     return prediction;
 }
 
-
 // Update the label container with prediction results
 function updateLabel(prediction) {
     let maxProbability = 0;
@@ -58,16 +58,13 @@ function updateLabel(prediction) {
         console.log(classPrediction);
     }
 
-    const maxClassPrediction = `${prediction[maxClassIndex].className}: ${maxProbability.toFixed(2)}`;
+    const maxClassPrediction = `${prediction[maxClassIndex].className}`;
     console.log(maxClassPrediction);
     
 
     sendPredictionToPHP(maxClassPrediction);
-    getPredictionPHP();
+    insertPredict();
 }
-
-
-init();
 
 function sendPredictionToPHP(maxClassPrediction) {
     // Make a POST request to your PHP script
@@ -92,16 +89,20 @@ function sendPredictionToPHP(maxClassPrediction) {
     });
 }
 
-function getPredictionPHP () {
+function insertPredict() {
+    const form = document.querySelector('.file-form');
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "functions/get_prediction.php", true);
+    xhr.open("POST", "functions/post_prediction.php", true);
     xhr.onload = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
+        if(xhr.readyState === XMLHttpRequest.DONE) {
+            if(xhr.status === 200) {
                 let data = xhr.response;
                 console.log(data);
+                }
             }
         }
-    };
-    xhr.send();
+    let formData = new FormData(form);
+    xhr.send(formData);
 }
+
+init();

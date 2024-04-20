@@ -133,42 +133,47 @@ main {
         gap: 20px;
         font-size: 0.9rem;
     }
-        .main-content > .chat-outgoing {
+        .chat-outgoing {
             align-self: end;
         }
-
-        .chat-outgoing {
-            width: max-content;
-        }
-        .chat-outgoing > p {
-            display: flex;
-            justify-content: end;
-            font-size: 0.8rem;
-        }
-        
-        .chat-outgoing > .details {
-            border-radius: 10px 10px 00px 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-        }
-            .details > img {
-                max-width: fit-content;
-                width: fit-content;
+            .chat-outgoing {
+                width: max-content;
             }
-            .image-content {
-                margin-right: 15px;
+            .chat-outgoing > p {
+                display: flex;
+                justify-content: end;
+                font-size: 0.8rem;
             }
-                .image-content > p {
-                    margin-bottom: 10px;
-                    margin-top: 10px;
+            .chat-outgoing > .details {
+                border-radius: 10px 10px 00px 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+                .details > img {
+                    max-width: fit-content;
+                    width: fit-content;
                 }
+                .image-content {
+                    margin-right: 15px;
+                }
+                    .image-content > p {
+                        margin-bottom: 10px;
+                        margin-top: 10px;
+                    }
         
+        .chat-incoming {
+            width: max-content;
+            
+        }
         .chat-incoming > p {
             font-size: 0.8rem;
         }
         .chat-incoming > .details {
             border-radius: 10px 10px 10px 0px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
         }
             .details {
                 background-color: #66a73d;
@@ -181,7 +186,7 @@ main {
                 .details > img {
                     width: 75x;
                     height: 75px;
-                }   
+                } 
         .main-content > article > h1 {
             color: white;
         }

@@ -1,7 +1,7 @@
 <?php 
     session_start();
     include_once "config.php";
-    $sql = mysqli_query($conn, "SELECT * FROM messages");
+    $sql = mysqli_query($conn, "SELECT * FROM `messages` WHERE menu_image_name = 'Object Name' ");
     $output = "";
 
     if (mysqli_num_rows($sql) == 1) {
