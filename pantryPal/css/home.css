@@ -15,14 +15,10 @@ html, body {
 
 body > header {
     width: 100%;
-    max-height: 10vh;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    flex-direction: row;
+    max-height: 15vh;
     background-color: rgb(59, 88, 59);
     position: sticky;
-    padding: 20px;
+    padding: 9px;
 }
     header > a {
         padding: 15px;
@@ -53,8 +49,9 @@ main {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            max-width: 20vw;
-            max-height: 90vh;
+            width: 16vw;
+            max-width: 16vw;
+            max-height: 83vh;
         }
             .recent-content {
                 padding: 20px;
@@ -92,8 +89,8 @@ main {
                 justify-content: start;
                 align-items: center;
                 width: 40px;
-                margin-left: 20px;
-                margin-bottom: 10px;
+                margin-left: 42px;
+                margin-bottom: -22px;
             }
                 .log-button > button {
                     color: white;
@@ -114,7 +111,7 @@ main {
                     }
 
 .chat-window {
-    max-width: 80vw;
+    max-width: 85vw;
     height: 100vh;
     max-height: 100vh;
     background-color: rgb(238, 238, 238);
@@ -123,8 +120,8 @@ main {
         display: flex;
         flex-direction: column;
         height: 79vh;
-        max-height: 79vh;
-        width: 80vw;
+        max-height: 100vh;
+        width: 84vw;
         color: white;
         background-image: url("../images/chatWindowBackg.jpeg");
         padding: 30px;
@@ -197,7 +194,7 @@ main {
         justify-content: flex-end;
         margin-right: 30px;
         align-items: center;
-        height: 11vh;
+        height: 10vh;
         max-height: 11vh;
         padding: 20px;
     }
@@ -243,6 +240,15 @@ li, a, button {
     font-weight: 500;
     color: #91F156;
     text-decoration: none;
+}
+ul > li > a > img {
+    margin-top: 10px;
+}
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 .nav_links li {
     display: inline-block;
