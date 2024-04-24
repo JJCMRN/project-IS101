@@ -6,6 +6,7 @@
         $outgoing_id = mysqli_real_escape_string($conn, $_POST['outgoing_id']);
         $incoming_id = "1";
         $object_name = "Object Name";
+        $object_name1 = "";
 
         if(!empty($name)) {
 
@@ -14,18 +15,18 @@
                 }
                 else {
                     
-                    $filename = $_FILES["image"] ["name"];
-                    $fileSize = $_FILES["image"] ["size"];
-                    $tmpName = $_FILES["image"] ["tmp_name"];
-        
-                    $validImageExtension = ['.jpg', 'png', 'jpeg'];
-                    $imageExtension = explode('.', $filename);
-                    $imageExtension = strtolower(end($imageExtension));
-        
+                    $filename = $_FILES["image"]["name"];
+                    $fileSize = $_FILES["image"]["size"];
+                    $tmpName = $_FILES["image"]["tmp_name"];
+
+                    // Get the file extension using pathinfo
+                    $imageExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+                    $validImageExtension = ['jpg', 'png', 'jpeg'];
+
                     if (!in_array($imageExtension, $validImageExtension)){
                         echo "Invalid Image Extension";
-                    }
-                    else if ($fileSize > 10000000) {
+                    } elseif ($fileSize > 10000000) {
                         echo "Image Size is too large";
                     }
                     else {

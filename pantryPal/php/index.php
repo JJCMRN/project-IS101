@@ -18,7 +18,7 @@
             <nav>
                 <ul class="nav_links">
                     <li><a href="#">Contact us</a></li>
-                    <li><a class="loginButton" href="login.html"><button>Login/SignUp</button></a></li>
+                    <li><a class="loginButton" href="login.php"><button>Login/SignUp</button></a></li>
                 </ul>
             </nav>
 

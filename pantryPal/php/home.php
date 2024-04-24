@@ -7,20 +7,36 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PantryPal</title>
-    <link rel="stylesheet" href="../css/home.css">
-</head>
-<body>
-        <header>   
-            <nav>
-                <ul class="nav_links">
-                    <li><a href="../php/index.html">About</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
-            </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PantryPal</title>
+        <link rel="stylesheet" href="../css/home.css">
+    </head>
+    <body>
+        <header>
+            <?php 
+                include_once("../php/functions/config.php");
+                $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+                $sql = mysqli_query($conn,"SELECT * FROM users WHERE user_id = '{$user_id}'");
+                if (mysqli_num_rows($sql) > 0) {
+                    $row = mysqli_fetch_assoc($sql);
+                }
+            ?>   
+                    <nav> 
+                        <ul class="nav_links">
+                            <li>
+                                <a>
+                                    <img class="logo" src="../images/logoPantryPalLight.png" alt="PantryPal : Smart Cooking Companion" width="50%">
+                                </a>
+                            </li>
+                            <div>
+                                <li><a href="../php/index.html">About</a></li>
+                                <li><a href="#">Help</a></li>
+                            </div>
+                            
+                        </ul>
+                    </nav>
         </header>
 
         <main>
@@ -28,23 +44,21 @@
 
                 <div class="left-sidebar">
                     <div class="recent-content">
-                        <a>
-                            <img class="logo" src="../images/logoPantryPalLight.png" alt="PantryPal : Smart Cooking Companion">
-                        </a>
 
                         <div class="new-chat">
-                            <p>New Chat</p>
-                            <a href="#"><svg class="new-chat-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" fill="white"/></svg></a>
+                            <p>Settings</p>
+                            <a href="#">
+                                <svg class="new-chat-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                    <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" fill="white"/>
+                                </svg>
+                            </a>
                         </div>
                         <div class="chat-history">
                             <header>
-                                <h3>Chat History</h3>
+                                <h3>Account Name</h3>
                             </header>
                             <div class="chat-history-content">
-                                <p>History 1</p>
-                                <p>History 2</p>
-                                <p>History 3</p>
-                                <p>History 4</p>
+                                <p>Earl Verzon</p>       
                             </div>
                         </div>
                     </div>
@@ -59,9 +73,12 @@
 
                 <div class="chat-window" >
                     <div class="main-content" id="chat-module">
-
-                    </div>
-
+                      <div>
+                        <p>
+                            Want to know the dishes? Let's start our cooking stories
+                        </p>
+                      </div>
+                    </div>  
 
                     <div class="bottom-content">
 
@@ -88,16 +105,16 @@
                                 </div>  
 
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-
-        <script src="../js/home.js"></script>
+        
+        
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-        <script src="../js/ai-prediction.js"></script>
-</body>
+        <script src="../js/home.js"></script>
+        <!-- <script src="../js/ai-prediction.js"></script> -->
+    </body>
 </html>

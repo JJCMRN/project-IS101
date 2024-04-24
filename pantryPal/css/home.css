@@ -18,7 +18,7 @@ body > header {
     max-height: 15vh;
     background-color: rgb(59, 88, 59);
     position: sticky;
-    padding: 9px;
+    /* padding: 9px; */
 }
     header > a {
         padding: 15px;
@@ -51,7 +51,7 @@ main {
             justify-content: space-between;
             width: 16vw;
             max-width: 16vw;
-            max-height: 83vh;
+            max-height: 92vh;
         }
             .recent-content {
                 padding: 20px;
@@ -89,8 +89,8 @@ main {
                 justify-content: start;
                 align-items: center;
                 width: 40px;
-                margin-left: 42px;
-                margin-bottom: -22px;
+                margin-left: 25px;
+                margin-bottom: 38px;
             }
                 .log-button > button {
                     color: white;
@@ -119,11 +119,11 @@ main {
     .main-content {
         display: flex;
         flex-direction: column;
-        height: 79vh;
+        height: 77vh;
         max-height: 100vh;
         width: 84vw;
         color: white;
-        background-image: url("../images/chatWindowBackg.jpeg");
+        background-image: url("../images/s5lwg2iw.png");
         padding: 30px;
         overflow-y: auto;
         position: relative;
@@ -142,7 +142,7 @@ main {
                 font-size: 0.8rem;
             }
             .chat-outgoing > .details {
-                border-radius: 10px 10px 00px 10px;
+                border-radius: 26px 26px 00px 26px;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-evenly;
@@ -152,7 +152,8 @@ main {
                     width: fit-content;
                 }
                 .image-content {
-                    margin-right: 15px;
+                    margin-right: 22px;
+                    margin-left: 15px;
                 }
                     .image-content > p {
                         margin-bottom: 10px;
@@ -167,10 +168,10 @@ main {
             font-size: 0.8rem;
         }
         .chat-incoming > .details {
-            border-radius: 10px 10px 10px 0px;
+            border-radius: 26px 26px 26px 0px;
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            width: max-content;
         }
             .details {
                 background-color: #66a73d;
@@ -183,7 +184,11 @@ main {
                 .details > img {
                     width: 75x;
                     height: 75px;
-                } 
+                }
+                .chat-incoming > .details > .image-content > p {
+                    margin-left: 5px;
+                }
+
         .main-content > article > h1 {
             color: white;
         }
@@ -234,6 +239,12 @@ main {
                     gap: 5px;
                 }
 
+.begin {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    font-size: 1.2em;
+}
 
 li, a, button {
     font-family: 'Rubik', sans-serif;

@@ -1,4 +1,3 @@
-
 // The link to your model provided by Teachable Machine export panel
 const URL = "https://teachablemachine.withgoogle.com/models/QJXWUlRoh/";
 
@@ -64,6 +63,7 @@ function updateLabel(prediction) {
 
     sendPredictionToPHP(maxClassPrediction);
     insertPredict();
+    
 }
 
 function sendPredictionToPHP(maxClassPrediction) {
@@ -79,7 +79,7 @@ function sendPredictionToPHP(maxClassPrediction) {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        return response.json();
+        return response;
     })
     .then(data => {
         console.log('Prediction sent successfully:', data);
