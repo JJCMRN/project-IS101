@@ -6,7 +6,6 @@
         $outgoing_id = mysqli_real_escape_string($conn, $_POST['outgoing_id']);
         $incoming_id = "1";
         $object_name = "Object Name";
-        $object_name1 = "";
 
         if(!empty($name)) {
 
