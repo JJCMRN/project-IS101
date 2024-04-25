@@ -73,12 +73,25 @@
 
                 <div class="chat-window" >
                     <div class="main-content" id="chat-module">
-                      <div>
-                        <p>
-                            Want to know the dishes? Let's start our cooking stories
-                        </p>
-                      </div>
-                    </div>  
+                        <div class="chat-outgoing">
+                            <div class="details">
+                                <div class="image-content">
+                                    <p>Menu Name</p>
+                                    <p id="menu-name">- '. $row['image_name'] .'</p>
+                                </div>
+                                <img src="functions/image_uploaded/img'. $row['image'] .'" alt="Image Sent">
+                            </div>
+                            <p> Sent : '. $row['msg_date'] .'</p>
+                        </div>
+                        <div class="chat-incoming">
+                            <div class="details">
+                                    <div class="image-content">
+                                       
+                                    </div>
+                                </div>
+                                <p> Sent : '. $row['msg_date'].'</p>
+                            </div>
+                        </div>  
 
                     <div class="bottom-content">
 
@@ -114,7 +127,6 @@
         
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-        <script src="../js/home.js"></script>
-        <!-- <script src="../js/ai-prediction.js"></script> -->
+        <!-- <script src="../js/home.js"></script> -->
     </body>
 </html>

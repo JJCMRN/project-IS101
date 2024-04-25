@@ -172,6 +172,7 @@ main {
             display: flex;
             flex-direction: row;
             width: max-content;
+            max-width: 42vw;
         }
             .details {
                 background-color: #66a73d;

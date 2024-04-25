@@ -21,6 +21,4 @@
             echo "the row is empty";
         } 
     }
-
-    echo $menu_name;
 ?>
