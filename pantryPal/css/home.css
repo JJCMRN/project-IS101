@@ -173,18 +173,29 @@ main {
             flex-direction: row;
             width: max-content;
             max-width: 42vw;
+            padding: 0% 10px;
+            white-space: break-spaces;
         }
             .details {
                 background-color: #66a73d;
                 padding: 15px;
                 margin-bottom: 5px;
             }
+                .details >  {
+                    background-color: #66a73d;
+                    padding: 15px;
+                    margin-bottom: 5px;
+                }
                 .details  p {
                     font-size: 0.87rem;
                 }
                 .details > img {
                     width: 75x;
                     height: 75px;
+                }
+                .chat-incoming > .details > .image-content {
+                    margin-top: -50px;
+                    margin-bottom: -16px;
                 }
                 .chat-incoming > .details > .image-content > p {
                     margin-left: 5px;

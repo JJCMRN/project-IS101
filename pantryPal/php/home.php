@@ -86,7 +86,7 @@
                         <div class="chat-incoming">
                             <div class="details">
                                     <div class="image-content">
-                                       
+                            
                                     </div>
                                 </div>
                                 <p> Sent : '. $row['msg_date'].'</p>
@@ -127,6 +127,6 @@
         
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-        <!-- <script src="../js/home.js"></script> -->
+        <script src="../js/home.js"></script>
     </body>
 </html>

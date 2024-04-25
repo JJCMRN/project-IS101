@@ -20,25 +20,15 @@
                                     </div>
                                     <p> Sent : '. $row['msg_date'] .'</p>
                                 </div>';
-                    } 
-                    else if ($row['image_name'] === "") {
-                        $output .= '<div class="chat-incoming">
-                                        <div class="details">
-                                            <div class="image-content">
-                                                <p>'. $row['menu_image_name'] .'</p>
-                                            </div>
-                                        </div>
-                                        <p> Sent : '. $row['msg_date'].'</p>
-                                    </div>';
-                    } else {
-                        echo "get_home.php can't find data";
-                    }
+
+                    echo $output; 
+                } 
             }
         } else {
             $output .= '<div class="begin">Want to know about details of dishes? Upload here and let me guide you</div>';
         }
-        echo $output;
-    } else {
+    }
+     else {
         header("location : ../php/login.php");
     }
 ?>
