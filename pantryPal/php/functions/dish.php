@@ -1,9 +1,11 @@
 <?php 
     include_once "config.php";
-    $outgoing_id = "463025258";
+    $outgoing_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+    // $outgoing_id = "463025258";
+    $incoming_id = 2;
 
     $sql = "SELECT * FROM messages
-    WHERE outgoing_msg_id = '{$outgoing_id}' AND menu_image_name != 'Object Name'
+    WHERE outgoing_msg_id = '{$outgoing_id}' AND incoming_msg_id = '{$incoming_id}'
     ORDER BY msg_id DESC
     LIMIT 1;
     ";

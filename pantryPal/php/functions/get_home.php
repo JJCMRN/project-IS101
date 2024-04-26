@@ -20,15 +20,24 @@
                                     </div>
                                     <p> Sent : '. $row['msg_date'] .'</p>
                                 </div>';
-
-                    echo $output; 
-                } 
+                } else if ($row['incoming_msg_id'] === "3") {
+                    $output .= '<div class="chat-incoming">
+                                    <div class="details">
+                                        <div class="image-content">
+                                            <p>'. $row['menu_image_name'] .'</p>
+                                        </div>
+                                    </div>
+                                    <p> Sent : '. $row['msg_date'] .'</p>
+                                </div>';
+                }
             }
         } else {
             $output .= '<div class="begin">Want to know about details of dishes? Upload here and let me guide you</div>';
         }
+    echo $output; 
     }
-     else {
+    
+    else {
         header("location : ../php/login.php");
     }
 ?>
