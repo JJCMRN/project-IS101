@@ -80,7 +80,7 @@ function insertChat () {
                 loadChat();
                 autoScrollDown();
 
-                setTimeout(() => {loadChat()}, 6000);
+                setTimeout(() => {loadChat()}, 4000);
                 }
             }
         }
@@ -200,11 +200,7 @@ function updateLabel(prediction) {
     setTimeout(() => {
         sendPredictionToPHP(maxClassPrediction);
         insertPredict();
-    }, 4000);
-
-    setTimeout(() => {
-        insertOpenAi();
-    }, 5000);
+    }, 6000);
 }
 
 function sendPredictionToPHP(maxClassPrediction) {
