@@ -23,8 +23,8 @@
                 } else if ($row['incoming_msg_id'] === "3") {
                     $output .= '<div class="chat-incoming">
                                     <div class="details">
-                                        <div class="image-content">
-                                            <p>'. $row['menu_image_name'] .'</p>
+                                        <div class="image-content" >
+                                            <p id="typewriter">'. $row['menu_image_name'] .'</p>
                                         </div>
                                     </div>
                                     <p> Sent : '. $row['msg_date'] .'</p>

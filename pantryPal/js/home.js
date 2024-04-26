@@ -64,7 +64,10 @@ function insertChat () {
                 loadChat();
                 autoScrollDown();
 
-                setTimeout(() => {loadChat()}, 6000);
+                setTimeout(() => {
+                    loadChat()
+                }, 6000);
+                
                 }
             }
         }
@@ -111,6 +114,14 @@ function logout() {
 logoutBtn.addEventListener('click', function() {
     logout();
 })
+
+
+        
+
+
+
+
+
 
 
 //----------------------------------------------------------------------------------

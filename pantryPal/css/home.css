@@ -303,3 +303,16 @@ nav > ul {
   'GRAD' 0,
   'opsz' 24
 }
+
+#typewriter {
+    border-right: 5px;
+    animation: typing 0.5s steps(20), cursor .4s step-end alternate;
+}
+
+@keyframes cursor {
+    50% {border-color: transparent;}
+}
+
+@keyframes typing {
+    from {width: 0%;}
+}
