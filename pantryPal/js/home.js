@@ -53,22 +53,6 @@ function loadChat () {
     xhr.send();
 }
 
-// function generateResponse () {
-
-//     let xhr = new XMLHttpRequest();
-//     xhr.open("GET", "../openai.php", true);
-//     xhr.onload = () => {
-//         if (xhr.readyState === XMLHttpRequest.DONE) {
-//             if (xhr.status === 200) {
-//                 let data = xhr.response;
-//                 console.log(data);
-//                 chat_module.innerHTML = data;
-//             }
-//         }
-//     }
-//     xhr.send();
-// }
-
 function insertChat () {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "functions/insert_chat.php", true);
@@ -80,7 +64,7 @@ function insertChat () {
                 loadChat();
                 autoScrollDown();
 
-                setTimeout(() => {loadChat()}, 4000);
+                setTimeout(() => {loadChat()}, 6000);
                 }
             }
         }
@@ -106,7 +90,7 @@ function exitImageArea() {
 
     while (imgArea.firstChild) {imgArea.removeChild(imgArea.firstChild);}
     imageArea.style.display = 'none';
-    inputName.value = '';
+    inputName.value = ' ';
 }
 
 function logout() {
@@ -200,7 +184,11 @@ function updateLabel(prediction) {
     setTimeout(() => {
         sendPredictionToPHP(maxClassPrediction);
         insertPredict();
-    }, 6000);
+    }, 4000);
+
+    setTimeout(() => {
+        insertOpenAi();
+    }, 5000);
 }
 
 function sendPredictionToPHP(maxClassPrediction) {

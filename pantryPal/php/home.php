@@ -73,25 +73,8 @@
 
                 <div class="chat-window" >
                     <div class="main-content" id="chat-module">
-                        <div class="chat-outgoing">
-                            <div class="details">
-                                <div class="image-content">
-                                    <p>Menu Name</p>
-                                    <p id="menu-name">- '. $row['image_name'] .'</p>
-                                </div>
-                                <img src="functions/image_uploaded/img'. $row['image'] .'" alt="Image Sent">
-                            </div>
-                            <p> Sent : '. $row['msg_date'] .'</p>
-                        </div>
-                        <div class="chat-incoming">
-                            <div class="details">
-                                    <div class="image-content">
-                            
-                                    </div>
-                                </div>
-                                <p> Sent : '. $row['msg_date'].'</p>
-                            </div>
-                        </div>  
+                        
+                    </div>  
 
                     <div class="bottom-content">
 
@@ -104,7 +87,7 @@
                                     <a href="#" class="image-uploaded" id="image"></a>
                                 </div>
                                 <input type="text" name="outgoing_id" value="<?php echo $_SESSION['user_id']; ?>" hidden>
-                                <input type="text" name="name" id="file-name" placeholder="File name" required>
+                                <input type="text" name="name" id="file-name" placeholder="Menu name" required>
                                 <label for="fileInput">Upload File</label>
                                 <input type="file" id="fileInput" name="image" accept=".jpg, .jpeg, .png" 
                                         value="" onchange="handleImageUpload(event)" >
