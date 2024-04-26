@@ -53,21 +53,21 @@ function loadChat () {
     xhr.send();
 }
 
-function generateResponse () {
+// function generateResponse () {
 
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "../openai.php", true);
-    xhr.onload = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                let data = xhr.response;
-                console.log(data);
-                chat_module.innerHTML = data;
-            }
-        }
-    }
-    xhr.send();
-}
+//     let xhr = new XMLHttpRequest();
+//     xhr.open("GET", "../openai.php", true);
+//     xhr.onload = () => {
+//         if (xhr.readyState === XMLHttpRequest.DONE) {
+//             if (xhr.status === 200) {
+//                 let data = xhr.response;
+//                 console.log(data);
+//                 chat_module.innerHTML = data;
+//             }
+//         }
+//     }
+//     xhr.send();
+// }
 
 function insertChat () {
     let xhr = new XMLHttpRequest();
@@ -80,7 +80,7 @@ function insertChat () {
                 loadChat();
                 autoScrollDown();
 
-                setTimeout(() => {loadChat()}, 4000);
+                setTimeout(() => {loadChat()}, 6000);
                 }
             }
         }
@@ -90,6 +90,7 @@ function insertChat () {
 
 sendBtn.onclick = () => {
     insertChat();
+    exitImageArea();
 }
 
 function autoScrollDown() {
@@ -98,14 +99,14 @@ function autoScrollDown() {
 }
 
 function exitImageArea() {
-    const imgArea = document.querySelector('.image-uploaded');
-    // Remove all child elements (images) from imgArea
-    while (imgArea.firstChild) {
-        imgArea.removeChild(imgArea.firstChild);
-    }
-    // Hide the imageArea container
+
+    const inputName = document.getElementById('file-name');
     const imageArea = document.querySelector('.image-area');
+    const imgArea = document.querySelector('.image-uploaded');
+
+    while (imgArea.firstChild) {imgArea.removeChild(imgArea.firstChild);}
     imageArea.style.display = 'none';
+    inputName.value = '';
 }
 
 function logout() {
@@ -199,7 +200,11 @@ function updateLabel(prediction) {
     setTimeout(() => {
         sendPredictionToPHP(maxClassPrediction);
         insertPredict();
-    }, 6000);
+    }, 4000);
+
+    setTimeout(() => {
+        insertOpenAi();
+    }, 5000);
 }
 
 function sendPredictionToPHP(maxClassPrediction) {
@@ -229,6 +234,21 @@ function insertPredict() {
     const form = document.querySelector('.file-form');
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "functions/post_prediction.php", true);
+    xhr.onload = () => {
+        if(xhr.readyState === XMLHttpRequest.DONE) {
+            if(xhr.status === 200) {
+                let data = xhr.response;
+                console.log(data);
+                }
+            }
+        }
+    let formData = new FormData(form);
+    xhr.send(formData);
+}
+
+function insertOpenAi() {
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "../post-openai.php", true);
     xhr.onload = () => {
         if(xhr.readyState === XMLHttpRequest.DONE) {
             if(xhr.status === 200) {

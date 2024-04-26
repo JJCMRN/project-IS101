@@ -3,9 +3,8 @@
     include_once "config.php";
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $outgoing_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
-    $incoming_id = 1;
+    $incoming_id = 2;
     $object_name = ""; 
-
 
 
     // Check if the request method is POST

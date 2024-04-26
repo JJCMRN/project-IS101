@@ -49,8 +49,8 @@ main {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 16vw;
-            max-width: 16vw;
+            width: 18.5vw;
+            max-width: 30vw;
             max-height: 92vh;
         }
             .recent-content {
@@ -111,7 +111,8 @@ main {
                     }
 
 .chat-window {
-    max-width: 85vw;
+    width: 84vw;
+    max-width: 84vw;
     height: 100vh;
     max-height: 100vh;
     background-color: rgb(238, 238, 238);
