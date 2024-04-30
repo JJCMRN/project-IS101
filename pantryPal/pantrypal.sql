@@ -31,7 +31,7 @@ CREATE TABLE `messages` (
   `msg_id` int(11) NOT NULL,
   `incoming_msg_id` int(11) NOT NULL,
   `outgoing_msg_id` int(11) NOT NULL,
-  `image_name` varchar(255) NOT NULL,
+  `image_name` varchar(10000) NOT NULL,
   `menu_image_name` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `msg_date` varchar(255) NOT NULL
