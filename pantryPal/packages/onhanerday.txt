@@ -1,0 +1,2 @@
+composer require orhanerday/open-ai
+susi - skearl-proj-vt13eZzIa7DbZAgzy1zVT3BlbkFJdDyOWQjJzFc48tBvUCIXearl
