@@ -84,13 +84,13 @@ body {
         }
 
 button {
-    padding: 17px 26%;
+    padding: 17px 18%;
     border: none;
     border-radius: 20px;
     background-color: #91F156;
     color: white;
     cursor: pointer;
-    width: 18vw;
+    width: 221px;
 
 }
 

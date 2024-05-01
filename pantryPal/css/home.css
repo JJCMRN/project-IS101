@@ -164,6 +164,7 @@ main {
         .chat-incoming {
             width: max-content;
             
+            
         }
         .chat-incoming > p {
             font-size: 0.8rem;
@@ -178,15 +179,10 @@ main {
             white-space: break-spaces;
         }
             .details {
-                background-color: #66a73d;
+                background-color: #328d15;
                 padding: 15px;
                 margin-bottom: 5px;
             }
-                .details >  {
-                    background-color: #66a73d;
-                    padding: 15px;
-                    margin-bottom: 5px;
-                }
                 .details  p {
                     font-size: 0.87rem;
                 }
@@ -315,4 +311,13 @@ nav > ul {
 
 @keyframes typing {
     from {width: 0%;}
+}
+
+.chat-incoming, .chat-outgoing {
+    font-family: cursive;
+}
+
+.image-content > p {
+    font-size: 1.2em;
+    letter-spacing: 0.4px;
 }
