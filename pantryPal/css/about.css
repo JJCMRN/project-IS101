@@ -38,71 +38,46 @@ header {
             font-weight: 700;
             color: white;
         }
-
 main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-image: url('../images/chatWindowBackg.jpeg');
+    background-color: white;
 }
-    .top {
+    .wrapper {
+        margin-top:100px;
+        background-color: #3B583B;
         height: 100vh;
-        background-image: url('../images/image.png');
-        background-size: 100vw;
-        background-repeat: no-repeat;
-    }
-        .content {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-left: 60px;
-            margin-top: 2px;
-        }
-            .content > img {
-                margin-top: 30px;
-            }
-            .content > p {
-                font-family: 'Roboto Mono';
-                font-size: 1.8em;
-                color: white;
-                margin-left: 50px;
-                font-weight: 600;
-                line-height: 1.6;
-                margin-top: 50px;
-            }
-.bottom {
-    position: absolute;
-    top: 74vh;
-    left: 76vw;
-    max-height: 40vh;
-    max-width: 40vw;
-}
-    .wrap {
-        height: 20vh;
-        width: 20vw;
-        background-color: #C8F4C8;
+        width: 60vw;
         border-radius: 50px;
     }
-        .getstarted {
+        .container {
+            padding: 10px 10%;
+        }
+        article {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3px;
         }
-            .getstarted > img {
-                margin-top: 5px;
+            span > img {
+                margin-top: 20px;
+                width: 35vw;    
             }
-            .getstarted > button {
-                background-color: #AEC690 ;
+
+            .content {
+                margin-top: 20px;
+                font-family: 'Roboto Mono';
                 color: white;
-                font-family: 'Roboto';
                 font-size: 0.9em;
                 font-weight: 500;
-                padding: 10px 10%;
-                border-color: #3b583b;
-                border-radius: 30px;
-                cursor: pointer;
             }
+
+
+
 a, li {
     text-decoration: none;
     list-style: none;
 }
+        
