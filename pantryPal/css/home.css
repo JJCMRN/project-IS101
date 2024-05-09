@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -141,6 +142,7 @@ main {
                 display: flex;
                 justify-content: end;
                 font-size: 0.8rem;
+                font-weight: 500;
             }
             .chat-outgoing > .details {
                 border-radius: 26px 26px 00px 26px;
@@ -168,6 +170,7 @@ main {
         }
         .chat-incoming > p {
             font-size: 0.8rem;
+            font-weight: 500;
         }
         .chat-incoming > .details {
             border-radius: 26px 26px 26px 0px;
@@ -179,7 +182,7 @@ main {
             white-space: break-spaces;
         }
             .details {
-                background-color: #328d15;
+                background-color: #6bb653;
                 padding: 15px;
                 margin-bottom: 5px;
             }
@@ -269,6 +272,7 @@ nav > ul {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-right: 4px;
 }
 .nav_links li {
     display: inline-block;
@@ -314,7 +318,7 @@ nav > ul {
 }
 
 .chat-incoming, .chat-outgoing {
-    font-family: cursive;
+    font-family: 'Open Sans';
 }
 
 .image-content > p {

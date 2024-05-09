@@ -10,7 +10,7 @@
     <div class="limiter">
         <div class="login-container">
             <div class="logo">
-                <a href="index.html">
+                <a href="get_started.html">
                     <img src="../images/logoPantrypal.png" alt="PantryPal" width="80%">
                 </a>
             </div>
@@ -34,12 +34,7 @@
                     </div>
 
                     <button class="login-form-btn"> Login </button>
-                  
-
-                    <div class="forgot-pass">
-                        <span class="txt1"> Forgot </span>
-                        <a class="txt2" href="#"> Password? </a>
-                    </div>
+                
                 </div>
                 
                 <div class="register-form">

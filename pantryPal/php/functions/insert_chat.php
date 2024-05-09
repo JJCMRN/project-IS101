@@ -50,6 +50,7 @@
         }
        
     } else {
-        header("location : ../php/login.php");
+        header("Location:../php/login.php");
+        exit;
     }
 ?>

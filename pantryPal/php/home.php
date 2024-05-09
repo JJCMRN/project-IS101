@@ -1,7 +1,8 @@
 <?php 
     session_start();
     if (!isset($_SESSION['user_id'])) {
-        header("location : ../php/login.php");
+        header("Location:../php/login.php");
+        exit;
     }
 ?>
 
@@ -31,8 +32,7 @@
                                 </a>
                             </li>
                             <div>
-                                <li><a href="../php/index.html">About</a></li>
-                                <li><a href="#">Help</a></li>
+                                <li><a href="about.html">About</a></li>
                             </div>
                             
                         </ul>
@@ -45,20 +45,13 @@
                 <div class="left-sidebar">
                     <div class="recent-content">
 
-                        <div class="new-chat">
-                            <p>Settings</p>
-                            <a href="#">
-                                <svg class="new-chat-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                                    <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" fill="white"/>
-                                </svg>
-                            </a>
-                        </div>
+                        
                         <div class="chat-history">
                             <header>
-                                <h3>Account Name</h3>
+                                <h3>Email Account</h3>
                             </header>
                             <div class="chat-history-content">
-                                <p>Earl Verzon</p>       
+                                <p><?php echo $row['email'];?></p>       
                             </div>
                         </div>
                     </div>

@@ -1,25 +1,30 @@
 <?php 
-    include_once "config.php";
-    $outgoing_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
-    $incoming_id = 2;
+    if(isset($_SESSION['user_id'])) {
+        include_once "config.php";
+        $outgoing_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+        $incoming_id = 2;
 
-    $sql = "SELECT * FROM messages
-    WHERE outgoing_msg_id = '{$outgoing_id}' AND incoming_msg_id = '{$incoming_id}'
-    ORDER BY msg_id DESC
-    LIMIT 1;
-    ";
+        $sql = "SELECT * FROM messages
+        WHERE outgoing_msg_id = '{$outgoing_id}' AND incoming_msg_id = '{$incoming_id}'
+        ORDER BY msg_id DESC
+        LIMIT 1;
+        ";
 
-    $query = mysqli_query($conn, $sql);
+        $query = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($query) > 0) {
-        $row = mysqli_fetch_assoc($query);
+        if (mysqli_num_rows($query) > 0) {
+            $row = mysqli_fetch_assoc($query);
         
-        if (!empty($row)) {
+            if (!empty($row)) {
 
-            $menu_name = $row["menu_image_name"];
+                $menu_name = $row["menu_image_name"];
 
-        } else {
-            echo "the row is empty";
-        } 
+            } else {
+                echo "the row is empty";
+            } 
+        }
+    } else {
+        header("Location:../php/login.php");
+        exit;
     }
 ?>
