@@ -73,17 +73,17 @@
 
                         <div class="custom-file-input">
 
-                            <form class="file-form" enctype="multipart/form-data">
+                            <form class="file-form" enctype="multipart/form-data" id="fileForm">
 
                                 <div class="image-area" data-img="">
                                     <a href="#" onclick="exitImageArea()"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>                                    
                                     <a href="#" class="image-uploaded" id="image"></a>
                                 </div>
                                 <input type="text" name="outgoing_id" value="<?php echo $_SESSION['user_id']; ?>" hidden>
-                                <input type="text" name="name" id="file-name" placeholder="Menu name" required>
+                                <!-- <input type="text" name="name" id="file-name" placeholder="Menu name" required> -->
                                 <label for="fileInput">Upload File</label>
                                 <input type="file" id="fileInput" name="image" accept=".jpg, .jpeg, .png" 
-                                        value="" onchange="handleImageUpload(event)" >
+                                        value="" onchange="handleImageUpload(event)" required>
 
                                 <div class="send-button">
                                     <button type="submit" name="submit" class="image-button" id="send-button">Send

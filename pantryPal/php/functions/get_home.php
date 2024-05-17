@@ -1,5 +1,6 @@
 <?php
     session_start();
+    
     if (isset($_SESSION['user_id'])) {
         include_once "config.php";
         $outgoing_id = mysqli_real_escape_string($conn, ($_SESSION['user_id']));
@@ -38,6 +39,6 @@
     }
     
     else {
-        header("location : ../php/login.php");
+        header("Location :../php/login.php");
     }
 ?>

@@ -3,7 +3,8 @@
 
     if (isset($_SESSION['user_id'])) {
         include_once "config.php";
-        $name = mysqli_real_escape_string($conn, $_POST['name']);
+        // $name = mysqli_real_escape_string($conn, $_POST['name']);
+        // $name = "Filipino Dish";
         $outgoing_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
         $incoming_id = 2;
         $object_name = ""; 
@@ -20,6 +21,8 @@
                 // Extract the maxClassPrediction parameter value
                 $maxClassPrediction = $requestData['maxClassPrediction'];
     
+                $_SESSION['menu-name'] = $maxClassPrediction;
+
                 date_default_timezone_set("Asia/Manila");
                 $time = date("h:ia - m/d/Y");
             

@@ -35,8 +35,6 @@ window.onload = function() {
     loadChat();
 };
 
-// setInterval (() => {}, 500);
-
 function loadChat () {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "functions/get_home.php", true);
@@ -53,32 +51,41 @@ function loadChat () {
     xhr.send();
 }
 
-function insertChat () {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "functions/insert_chat.php", true);
-    xhr.onload = () => {
-        if(xhr.readyState === XMLHttpRequest.DONE) {
-            if(xhr.status === 200) {
-                let data = xhr.response;
-                console.log(data);
-                loadChat();
-                autoScrollDown();
+async function insertChat() {
+    try {
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "functions/insert_chat.php", true);
 
-                setTimeout(() => {
-                    loadChat()
-                }, 6000);
-                
+        xhr.onload = () => {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    let data = xhr.response;
+                    console.log(data);
+                    loadChat();
+                    autoScrollDown();
                 }
             }
-        }
-    let formData = new FormData(form);
-    xhr.send(formData);
+        };
+
+        let formData = new FormData(form);
+        xhr.send(formData);
+
+        // Wait for the chat to be inserted
+        await new Promise((resolve) => {
+            xhr.onloadend = () => resolve();
+        });
+
+        await insertOpenAi();
+
+        // Wait for insertOpenAi to finish before loading chat again
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        loadChat();
+    } catch (error) {
+        console.error('Error during insertChat:', error);
+    }
 }
 
-sendBtn.onclick = () => {
-    insertChat();
-    exitImageArea();
-}
 
 function autoScrollDown() {
     var chat_module = document.querySelector('.main-content');
@@ -87,13 +94,11 @@ function autoScrollDown() {
 
 function exitImageArea() {
 
-    const inputName = document.getElementById('file-name');
     const imageArea = document.querySelector('.image-area');
     const imgArea = document.querySelector('.image-uploaded');
 
     while (imgArea.firstChild) {imgArea.removeChild(imgArea.firstChild);}
     imageArea.style.display = 'none';
-    inputName.value = ' ';
 }
 
 function logout() {
@@ -116,7 +121,28 @@ logoutBtn.addEventListener('click', function() {
 })
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('fileForm');
+
+    form.addEventListener('submit', function(event) {
+        const inputs = form.querySelectorAll('input[required]');
+        let allFilled = true;
         
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                allFilled = false; 
+            }
+        });
+
+        if (!allFilled) {
+            event.preventDefault(); // Prevent form submission if not all fields are filled
+        }
+        else {
+            insertChat(); //Insert to Database <form> inputs
+            exitImageArea(); //Cleared <form> inputs
+        }
+    });
+});
 
 
 
@@ -156,8 +182,10 @@ async function handleImageUpload(event) {
     const img = document.createElement('img');
     img.onload = async () => {
         if (modelLoaded) { // Check if the model has finished loading
+            
             const prediction = await predict(img);
             updateLabel(prediction);
+            
         } else {
             console.error('Model is not yet loaded.');
         }
@@ -191,15 +219,7 @@ function updateLabel(prediction) {
     const maxClassPrediction = `${prediction[maxClassIndex].className}`;
     console.log(maxClassPrediction);
 
-    
-    setTimeout(() => {
-        sendPredictionToPHP(maxClassPrediction);
-        insertPredict();
-    }, 4000);
-
-    setTimeout(() => {
-        insertOpenAi();
-    }, 5000);
+    sendPredictionToPHP(maxClassPrediction);
 }
 
 function sendPredictionToPHP(maxClassPrediction) {
@@ -225,35 +245,28 @@ function sendPredictionToPHP(maxClassPrediction) {
     });
 }
 
-function insertPredict() {
-    const form = document.querySelector('.file-form');
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "functions/post_prediction.php", true);
-    xhr.onload = () => {
-        if(xhr.readyState === XMLHttpRequest.DONE) {
-            if(xhr.status === 200) {
-                let data = xhr.response;
-                console.log(data);
-                }
-            }
-        }
-    let formData = new FormData(form);
-    xhr.send(formData);
-}
+async function insertOpenAi() {
 
-function insertOpenAi() {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "../post-openai.php", true);
-    xhr.onload = () => {
-        if(xhr.readyState === XMLHttpRequest.DONE) {
-            if(xhr.status === 200) {
-                let data = xhr.response;
-                console.log(data);
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "../post-openai.php", true);
+        xhr.onload = () => {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    let data = xhr.response;
+                    console.log(data);
+                    resolve(); // Resolve the promise when done
+                } else {
+                    reject(`Error: ${xhr.status}`); // Reject the promise on error
                 }
             }
-        }
-    let formData = new FormData(form);
-    xhr.send(formData);
+        };
+        xhr.onerror = () => reject("Network error");
+
+        let form = document.getElementById('fileForm');
+        let formData = new FormData(form);
+        xhr.send(formData);
+    });
 }
 
 init();

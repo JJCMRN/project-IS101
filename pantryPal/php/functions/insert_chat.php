@@ -2,7 +2,8 @@
     session_start();
     if(isset($_SESSION['user_id'])) {
         include_once "config.php";
-        $name = mysqli_real_escape_string($conn, $_POST['name']);
+        // include_once "post-prediction.php";
+        $name = $_SESSION['menu-name'];
         $outgoing_id = mysqli_real_escape_string($conn, $_POST['outgoing_id']);
         $incoming_id = "1";
         $object_name = "Object Name";
